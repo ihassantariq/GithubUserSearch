@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GithubUsersApp.Views.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="{Binding Title}">
+    
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">0,0,0,0</On>
+            <On Platform="iOS">0,20,0,0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Source="ic_github.png" HeightRequest="100" VerticalOptions="End" />
+                <Entry AutomationId="UsernameEntry" Grid.Row="1" Placeholder="Enter username" PlaceholderColor="#bababa" FontSize="16" />
+                <Button AutomationId="LoginButton" Command="{Binding LoginCommand}" Text="See Details" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label BackgroundColor="#bababa" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                    <Label Text="OR" Grid.Column="1" VerticalOptions="Center" Margin="10,0,10,0" />
+                    <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                </Grid>
+            </Grid>
+            <StackLayout Grid.Row="2" BackgroundColor="#FFFFFF">
+                <Label HeightRequest="1" BackgroundColor="#E3E3E3" />
+                <Label Text="Don't have an account? Sign up." VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
