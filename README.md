@@ -6,5 +6,6 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
 2. Display all the repositories associated with the given user name  
 3. Show avatar/thumbnail for user/repo · 
 4. Show minimal Details APIs to use: 
-  i. https://api.github.com/users/{user}
-  ii. https://api.github.com/users/{user}/repos
+
+i. https://api.github.com/users/{user}
+ii. https://api.github.com/users/{user}/repos
