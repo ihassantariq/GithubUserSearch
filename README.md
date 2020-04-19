@@ -1,0 +1,2 @@
+# GithubUserSearch
+Objective: Develop an app using Xamarin Forms, to search for Git hub users and show associated repositories. UI Requirements: · Search field to enter a Git hub user name/ or can put any hardcoded user · Display all the repositories associated with the given user name · Show avatar/thumbnail for user/repo · Show minimal Details APIs to use: · https://api.github.com/users/{user} · https://api.github.com/users/{user}/repos
