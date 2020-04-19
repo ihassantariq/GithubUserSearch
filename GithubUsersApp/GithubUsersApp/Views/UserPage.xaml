@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GithubUsersApp.Views.MainPage"
+             x:Class="GithubUsersApp.Views.UserPage"
              NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
     
@@ -33,8 +33,8 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Image Source="ic_github.png" HeightRequest="100" VerticalOptions="End" />
-                <Entry AutomationId="UsernameEntry" Grid.Row="1" Placeholder="Enter username" PlaceholderColor="#bababa" FontSize="16" />
-                <Button AutomationId="LoginButton" Command="{Binding LoginCommand}" Text="See Details" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
+                <Entry AutomationId="UsernameEntry" Grid.Row="1" Text="{Binding UserName}" Placeholder="Enter username" PlaceholderColor="#bababa" FontSize="16" />
+                <Button AutomationId="LoginButton" Command="{Binding SeeUserDetailsCommand}" Text="See Details" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
                 <Grid Grid.Row="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

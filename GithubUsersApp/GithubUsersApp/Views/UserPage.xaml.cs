@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace GithubUsersApp.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class UserPage : ContentPage
     {
-        public MainPage()
+        public UserPage()
         {
             InitializeComponent();
         }

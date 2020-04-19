@@ -4,6 +4,9 @@ using GithubUsersApp.ViewModels;
 using GithubUsersApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prism.Modularity;
+using GithubUsersApp.APIClients;
+using System;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace GithubUsersApp
@@ -23,13 +26,26 @@ namespace GithubUsersApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(UserPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<UserPage, UserPageViewModel>();
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            Type apiClientModuleType = typeof(APIClientsModule);
+            moduleCatalog.AddModule(
+            new ModuleInfo()
+            {
+                ModuleName = apiClientModuleType.Name,
+                ModuleType = apiClientModuleType,
+                InitializationMode = InitializationMode.WhenAvailable
+            });
+            base.ConfigureModuleCatalog(moduleCatalog);
         }
     }
 }
