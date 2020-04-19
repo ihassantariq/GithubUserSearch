@@ -13,6 +13,6 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
 
 4. Show minimal Details APIs to use: 
 
-    i.https://api.github.com/users/{user}
+    i. https://api.github.com/users/{user}
   
     ii. https://api.github.com/users/{user}/repos
