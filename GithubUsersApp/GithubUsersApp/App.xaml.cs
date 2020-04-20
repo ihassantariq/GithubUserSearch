@@ -8,7 +8,6 @@ using Prism.Modularity;
 using GithubUsersApp.APIClients;
 using System;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace GithubUsersApp
 {
     public partial class App
@@ -33,6 +32,9 @@ namespace GithubUsersApp
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<UserPage, UserPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<MenuPage, MenuPageViewModel>();
+            containerRegistry.RegisterForNavigation<RepositoriesPage, RepositoriesPageViewModel>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

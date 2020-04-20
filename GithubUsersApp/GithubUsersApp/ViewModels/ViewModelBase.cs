@@ -18,29 +18,29 @@ namespace GithubUsersApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
+        }
+        public bool ShowControls { get { return !_isBusy; } }
+
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;
         }
 
         public virtual void Initialize(INavigationParameters parameters)
-        {
-
-        }
+        {}
 
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
-        {
-
-        }
+        {}
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
-        {
-
-        }
+        {}
 
         public virtual void Destroy()
-        {
-
-        }
+        {}
     }
 }

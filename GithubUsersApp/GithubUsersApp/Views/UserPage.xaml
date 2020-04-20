@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GithubUsersApp.Views.UserPage"
              NavigationPage.HasNavigationBar="False"
+             IsBusy="{Binding IsBusy}"
              Title="{Binding Title}">
     
     
@@ -34,7 +35,8 @@
                 </Grid.RowDefinitions>
                 <Image Source="ic_github.png" HeightRequest="100" VerticalOptions="End" />
                 <Entry AutomationId="UsernameEntry" Grid.Row="1" Text="{Binding UserName}" Placeholder="Enter username" PlaceholderColor="#bababa" FontSize="16" />
-                <Button AutomationId="LoginButton" Command="{Binding SeeUserDetailsCommand}" Text="See Details" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
+                <Button AutomationId="LoginButton" Command="{Binding SeeUserDetailsCommand}" IsVisible="{Binding ShowControls}"  Text="See Details" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Color="#3897F0"  Grid.Row="3" HorizontalOptions="Center" />
                 <Grid Grid.Row="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

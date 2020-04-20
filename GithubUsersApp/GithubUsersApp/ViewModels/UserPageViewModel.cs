@@ -1,6 +1,9 @@
 ﻿using GithubUsersApp.APIClients.APIClients.Interfaces;
+using GithubUsersApp.Data;
 using GithubUsersApp.Data.Helpers;
 using GithubUsersApp.Data.Models;
+using GithubUsersApp.Views;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -10,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GithubUsersApp.ViewModels
@@ -37,18 +41,22 @@ namespace GithubUsersApp.ViewModels
             _userApiClient = userApiClient;
             _pageDialogService = pageDialogService;
 
-             Title = "User Page";
+             Title = String.Empty;
         }
         private async void GetUserDetails()
         {
+            IsBusy = true;
             if (!string.IsNullOrWhiteSpace(UserName))
             {
                 User user = await _userApiClient.GetUser(UserName);
+                Preferences.Set(Constants.Keys.User, JsonConvert.SerializeObject(user));
+                await NavigationService.NavigateAsync($"/{nameof(HomePage)}");
             }
             else
             {
                 UserDialogsHelper.ShowNotification("Username cannot be empty.", NotificationTypeEnum.Error);
             }
+            IsBusy = false;
         }
     }
 }

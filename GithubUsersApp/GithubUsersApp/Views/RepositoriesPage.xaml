@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             IsBusy="{Binding IsBusy}"
+             Title="{Binding Title}"
+             x:Class="GithubUsersApp.Views.RepositoriesPage">
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding Repositories}"
+            CachingStrategy="RecycleElement">
+        <ListView.Behaviors>
+        <b:EventToCommandBehavior
+                Command="{Binding NavigateCommand}"
+                EventName="ItemTapped" />
+        </ListView.Behaviors>
+        <!--Built in Cells-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}" TextColor="#3897F0"  Detail="{Binding Description}" DetailColor="Black" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        <!--Custom View Cells-->
+    <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   d:Text="{Binding .}"
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   d:Text="Detail"
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+  </ListView>
+</ContentPage>

@@ -9,6 +9,6 @@ namespace GithubUsersApp.APIClients.APIClients.Interfaces
     public interface IUserApiClient
     {
         Task<User> GetUser(string user);
-        Task<Repository> GetUserRepos(string user);
+        Task<List<Repository>> GetUserRepos(string user);
     }
 }

@@ -96,6 +96,12 @@
     <ITunesArtwork Include="iTunesArtwork@1x.png" />
     <ITunesArtwork Include="iTunesArtwork@2x.png" />
     <ITunesArtwork Include="iTunesArtwork@3x.png" />
+    <BundleResource Include="Resources\Fonts\fa-brands-400.ttf" />
+    <BundleResource Include="Resources\Fonts\fa-light-300.ttf" />
+    <BundleResource Include="Resources\Fonts\fa-regular-400.ttf" />
+    <BundleResource Include="Resources\Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+    <BundleResource Include="Resources\Fonts\Font Awesome 5 Free-Regular-400.otf" />
+    <BundleResource Include="Resources\Fonts\Font Awesome 5 Free-Solid-900.otf" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -189,6 +195,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1367" />
   </ItemGroup>
@@ -206,6 +215,19 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_github%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburguer_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburguer_icon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\defaultphoto%403x.png" />
+    <Content Include="Resources\defaultphoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\defaultphoto%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

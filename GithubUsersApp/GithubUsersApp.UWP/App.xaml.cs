@@ -52,6 +52,8 @@ namespace GithubUsersApp.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
+                //FFImage Loading initialization
+                FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
                 Xamarin.Forms.Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)

@@ -54,7 +54,7 @@ namespace GithubUsersApp.APIClients.APIClients
             }
         }
 
-        public async Task<Repository> GetUserRepos(string user)
+        public async Task<List<Repository>> GetUserRepos(string user)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace GithubUsersApp.APIClients.APIClients
                 var response = await RestService
                     .For<IUserApi>(await GetHttpClient())
                     .GetUserRepos(user);
-                return await HttpResponsHelper.GetObjectFor<Repository>(response);
+                return await HttpResponsHelper.GetObjectFor<List<Repository>>(response);
             }
             catch (Exception ex)
             {
