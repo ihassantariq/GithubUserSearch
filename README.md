@@ -35,5 +35,5 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
 
 1. App is asking for any github user. 
 
-![See Detaills](/Screenshoots/IOS/2020-04-22_11-51-55-PM.png)
+<image src="Screenshoots/IOS/2020-04-22_11-51-55-PM.png" width="100" center />
 
