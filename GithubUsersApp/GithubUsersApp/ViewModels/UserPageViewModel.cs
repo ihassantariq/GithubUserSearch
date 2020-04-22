@@ -58,11 +58,6 @@ namespace GithubUsersApp.ViewModels
                     Preferences.Set(Constants.Keys.User, JsonConvert.SerializeObject(user));
                     await NavigationService.NavigateAsync($"/{nameof(HomePage)}");
                 }
-                else
-                {
-                    UserDialogsHelper.ShowNotification("Fetching user data failed.", NotificationTypeEnum.Error);
-
-                }
             }
             else
             {
