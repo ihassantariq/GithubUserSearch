@@ -37,6 +37,6 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
 
 <div class="center" >
     <image src="Screenshoots/IOS/2020-04-22_11-51-55-PM.png"/>
-    <image src="Screenshoots/Android/2020-04-22_11-51-55-PM.png"/>
+    <image src="Screenshoots/Android/Screenshot_1587592030.png"/>
 </div>
 
