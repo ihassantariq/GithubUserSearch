@@ -37,7 +37,7 @@ namespace GithubUsersApp.ViewModels
         public ObservableCollection<Repository> Repositories { get; set; } = new ObservableCollection<Repository>();
 
 
-        public Repository SelectedMenuItem
+        public Repository SelectedItem
         {
             get { return _selectedMenuItem; }
             set
@@ -84,11 +84,13 @@ namespace GithubUsersApp.ViewModels
 
         private void NavigateTapped(object obj)
         {
-            if (SelectedMenuItem != null )
+           
+            if (SelectedItem != null )
             {
-               // _navigationService.NavigateAsync($"{nameof(NavigationPage)}/{}");
+                Preferences.Set(Constants.Keys.Repo, JsonConvert.SerializeObject((Repository)SelectedItem));
+                NavigationService.NavigateAsync($"{nameof(RepoDetailsPage)}");
             }
-            SelectedMenuItem = null;
+            SelectedItem = null;
         }
 
         #endregion

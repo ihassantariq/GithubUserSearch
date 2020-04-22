@@ -33,8 +33,9 @@ namespace GithubUsersApp
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<UserPage, UserPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
-            containerRegistry.RegisterForNavigation<MenuPage, MenuPageViewModel>();
             containerRegistry.RegisterForNavigation<RepositoriesPage, RepositoriesPageViewModel>();
+            containerRegistry.RegisterForNavigation<UserDetailsPage, UserDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<RepoDetailsPage, RepoDetailsPageViewModel>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

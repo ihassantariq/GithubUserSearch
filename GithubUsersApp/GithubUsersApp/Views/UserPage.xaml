@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
                 <Image Source="ic_github.png" HeightRequest="100" VerticalOptions="End" />
                 <Entry AutomationId="UsernameEntry" Grid.Row="1" Text="{Binding UserName}" Placeholder="Enter username" PlaceholderColor="#bababa" FontSize="16" />
-                <Button AutomationId="LoginButton" Command="{Binding SeeUserDetailsCommand}" IsVisible="{Binding ShowControls}"  Text="See Details" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
+                <Button AutomationId="LoginButton" Command="{Binding SeeUserDetailsCommand}" IsVisible="{Binding IsShowControls}"  Text="See Details" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
                 <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Color="#3897F0"  Grid.Row="3" HorizontalOptions="Center" />
                 <Grid Grid.Row="5">
                     <Grid.ColumnDefinitions>
@@ -50,7 +50,14 @@
             </Grid>
             <StackLayout Grid.Row="2" BackgroundColor="#FFFFFF">
                 <Label HeightRequest="1" BackgroundColor="#E3E3E3" />
-                <Label Text="Don't have an account? Sign up." VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label Text="Don't have an account?" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    <Label Text="Signup" VerticalOptions="FillAndExpand" TextColor="#3897F0"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GithubSignupCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

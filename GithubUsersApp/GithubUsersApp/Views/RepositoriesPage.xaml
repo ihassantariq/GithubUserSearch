@@ -9,38 +9,125 @@
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              IsBusy="{Binding IsBusy}"
              Title="{Binding Title}"
+             BackgroundColor="White"
              x:Class="GithubUsersApp.Views.RepositoriesPage">
-    <ListView x:Name="MyListView"
-            ItemsSource="{Binding Repositories}"
-            CachingStrategy="RecycleElement">
-        <ListView.Behaviors>
-        <b:EventToCommandBehavior
-                Command="{Binding NavigateCommand}"
-                EventName="ItemTapped" />
-        </ListView.Behaviors>
-        <!--Built in Cells-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Name}" TextColor="#3897F0"  Detail="{Binding Description}" DetailColor="Black" />
-            </DataTemplate>
-        </ListView.ItemTemplate>
 
-        <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   d:Text="{Binding .}"
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   d:Text="Detail"
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Color="#3897F0"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <ListView 
+                IsVisible="{Binding IsShowControls}"
+                ItemsSource="{Binding Repositories}"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                SeparatorVisibility="Default"
+                SeparatorColor="LightGray"
+                BackgroundColor="White"
+                HasUnevenRows="True"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                CachingStrategy="RecycleElement">
+            <ListView.Behaviors>
+            <b:EventToCommandBehavior
+                    Command="{Binding NavigateCommand}"
+                    EventName="ItemTapped" />
+            </ListView.Behaviors>
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        
+                        <Grid 
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand" 
+                            VerticalOptions="FillAndExpand" 
+                            Margin="20,15" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="14*" />
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout 
+                                Grid.Column="0"
+                                BackgroundColor="White" 
+                                HorizontalOptions="FillAndExpand" 
+                                Orientation="Vertical" >
+
+                                <StackLayout.Resources>
+                                    <ResourceDictionary>
+                                        <Style TargetType="Label">
+                                            <Setter Property="FontSize" Value="{StaticResource mediumFontSize}" />
+                                        </Style>
+                                    </ResourceDictionary>
+                                </StackLayout.Resources>
+
+                                <Label Text="{Binding Name}"  
+                                       HorizontalOptions="FillAndExpand" 
+                                       TextColor="Black" FontAttributes="Bold"  
+                                       LineBreakMode="TailTruncation"  
+                                       FontSize="Medium" />
+                                <Label Text="{Binding Description}"  
+                                       HorizontalOptions="FillAndExpand" 
+                                       TextColor="DimGray"
+                                       MaxLines="3" 
+                                       LineBreakMode="TailTruncation" 
+                                       FontSize="Small"  />
+
+                                <StackLayout 
+                                    Orientation="Horizontal" 
+                                    HorizontalOptions="FillAndExpand">
+                                    <StackLayout 
+                                        HorizontalOptions="Start" 
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontFamily="{StaticResource fontFamilyFreeS}"
+                                            TextColor="DarkGray"
+                                            FontSize="Small"
+                                            HorizontalTextAlignment="Center"
+                                            Text="&#xf005;"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            TextColor="Black"
+                                            FontSize="Micro"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding Watchers}"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+
+                                    <StackLayout 
+                                        HorizontalOptions="Start" 
+                                        Orientation="Horizontal">
+
+                                        <Label
+                                            FontFamily="{StaticResource fontFamilyFreeS}"
+                                            TextColor="DarkGray"
+                                            FontSize="Small"
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            Text="&#xf188;"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            TextColor="Black"
+                                            FontSize="Micro"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding OpenIssuesCount}"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                            </StackLayout>
+                            <StackLayout  Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center">
+                                <Label
+                                    FontFamily="{StaticResource fontFamilyFreeS}"
+                                    TextColor="LightGray"
+                                    FontSize="Title"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="End"
+                                    HorizontalOptions="End"
+                                    Text="&#xf105;"
+                                    VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

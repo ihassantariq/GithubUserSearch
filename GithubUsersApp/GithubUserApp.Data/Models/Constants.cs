@@ -6,7 +6,7 @@ namespace GithubUsersApp.Data
         public static class Keys
         {
             public const string User = "user";
-            public const string RememberUser = "rememberUser";
+            public const string Repo = "repo";
         }
     }
 }

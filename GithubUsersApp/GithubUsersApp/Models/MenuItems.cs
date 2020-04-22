@@ -13,9 +13,9 @@ namespace GithubUsersApp.Models
         {
             return new List<MenuItems>()
             {
-                new MenuItems { Icon = '\uf022' , Title = "Repositories" , PageName = nameof(HomePage) },
-                new MenuItems { Icon = '\uf007' , Title = "User Detail", PageName = nameof(HomePage) },
-                new MenuItems { Icon = '\uf2f5' , Title = "Logout" }
+                new MenuItems { Icon = '\uf022' , Title = "Repositories" , PageName = nameof(RepositoriesPage) },
+                new MenuItems { Icon = '\uf007' , Title = "User Details", PageName = nameof(UserDetailsPage) },
+                new MenuItems { Icon = '\uf2f5' , Title = "Go Out" }
             };
         }
     }

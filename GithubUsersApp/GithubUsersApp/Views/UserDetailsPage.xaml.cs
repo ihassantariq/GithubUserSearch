@@ -2,12 +2,11 @@
 
 namespace GithubUsersApp.Views
 {
-    public partial class MenuPage : ContentPage
+    public partial class UserDetailsPage : ContentPage
     {
-        public MenuPage()
+        public UserDetailsPage()
         {
             InitializeComponent();
-            this.Icon = "hamburguer_icon.png";
         }
     }
 }

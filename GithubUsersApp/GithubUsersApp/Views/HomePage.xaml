@@ -9,7 +9,109 @@
                   x:Class="GithubUsersApp.Views.HomePage">
 
     <MasterDetailPage.Master>
-        <views:MenuPage x:Name="masterPage"   />
+        <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             IsBusy="{Binding IsBusy}"
+             IconImageSource = "hamburguer_icon.png"
+             Title="Repositories">
+
+            <ContentPage.Content>
+
+                <StackLayout>
+                    <StackLayout  VerticalOptions="FillAndExpand">
+                        <Grid RowSpacing="20" BackgroundColor="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Frame
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Padding="0"
+                                CornerRadius="40"
+                                HasShadow="False"
+                                HeightRequest="80"
+                                HorizontalOptions="Center"
+                                IsClippedToBounds="True"
+                                WidthRequest="80">
+                                <Frame.Content>
+                                    <ffimageloading:CachedImage
+                                        x:Name="profileImage"
+                                        Margin="0"
+                                        LoadingPlaceholder="defaultphoto.png"
+                                        ErrorPlaceholder="defaultphoto.png"
+                                        Aspect="AspectFill"
+                                        HorizontalOptions="FillAndExpand"
+                                        Source="{Binding User.AvatarUrl}"
+                                        VerticalOptions="FillAndExpand" />
+                                </Frame.Content>
+                            </Frame>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="{StaticResource mediumFontSize}"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding User.Name}" />
+                        </Grid>
+                        <ListView
+                        BackgroundColor="White"
+                        ItemsSource="{Binding MenuItemsList}"
+                        SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
+                        SeparatorVisibility="None"
+                        VerticalOptions="FillAndExpand">
+                            <ListView.Behaviors>
+                                <b:EventToCommandBehavior
+                                Command="{Binding NavigateCommand}"
+                                EventName="ItemTapped" />
+                            </ListView.Behaviors>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="10">
+                                            <Grid.Resources>
+                                                <ResourceDictionary>
+                                                    <Style TargetType="Label">
+                                                        <Setter Property="FontSize" Value="{StaticResource mediumFontSize}" />
+                                                    </Style>
+                                                </ResourceDictionary>
+                                            </Grid.Resources>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            FontFamily="{StaticResource fontFamilyFreeS}"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding Icon}"
+                                            VerticalTextAlignment="Center" />
+                                            <Label
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        Text="{Binding Title}"
+                                        VerticalTextAlignment="Center" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Label
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Margin="0,0,0,10"
+                        Text="{Binding AppVersion,StringFormat='Version {0}'}"
+                        FontAttributes="Bold" />
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>

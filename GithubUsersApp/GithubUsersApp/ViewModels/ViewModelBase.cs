@@ -18,14 +18,23 @@ namespace GithubUsersApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private bool _isBusy;
+        private bool _isBusy = false;
         public bool IsBusy
         {
             get { return _isBusy; }
-            set { SetProperty(ref _isBusy, value); }
+            set { SetProperty(ref _isBusy, value, SetShowControlsProperty); }
         }
-        public bool ShowControls { get { return !_isBusy; } }
+        private bool _isShowControls = true;
+        public bool IsShowControls
+        { 
+            get { return _isShowControls; }
+            set { SetProperty(ref _isShowControls, value); }
+        }
 
+        private void SetShowControlsProperty()
+        {
+            IsShowControls = !_isBusy;
+        }
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;

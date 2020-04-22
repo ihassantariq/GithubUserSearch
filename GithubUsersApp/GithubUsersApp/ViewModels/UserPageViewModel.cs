@@ -20,16 +20,20 @@ namespace GithubUsersApp.ViewModels
 {
     public class UserPageViewModel : ViewModelBase
     {
-
+        private const string JOIN_URL = "https://github.com/join";
         #region Private Properties
         private IUserApiClient _userApiClient;
         private IPageDialogService _pageDialogService;
         public string UserName { set; get; }
+
         #endregion
 
         #region Commands
 
         public ICommand SeeUserDetailsCommand => new Command(GetUserDetails);
+        public ICommand GithubSignupCommand => new Command(OpenGithubSingupUrl);
+
+        
 
         #endregion
         public UserPageViewModel(INavigationService navigationService,
@@ -49,14 +53,27 @@ namespace GithubUsersApp.ViewModels
             if (!string.IsNullOrWhiteSpace(UserName))
             {
                 User user = await _userApiClient.GetUser(UserName);
-                Preferences.Set(Constants.Keys.User, JsonConvert.SerializeObject(user));
-                await NavigationService.NavigateAsync($"/{nameof(HomePage)}");
+                if (user != null)
+                {
+                    Preferences.Set(Constants.Keys.User, JsonConvert.SerializeObject(user));
+                    await NavigationService.NavigateAsync($"/{nameof(HomePage)}");
+                }
+                else
+                {
+                    UserDialogsHelper.ShowNotification("Fetching user data failed.", NotificationTypeEnum.Error);
+
+                }
             }
             else
             {
                 UserDialogsHelper.ShowNotification("Username cannot be empty.", NotificationTypeEnum.Error);
             }
             IsBusy = false;
+        }
+
+        private async void OpenGithubSingupUrl()
+        {
+             await Launcher.OpenAsync(new Uri(JOIN_URL));
         }
     }
 }

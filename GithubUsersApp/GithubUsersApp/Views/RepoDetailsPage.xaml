@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="True"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="White"
+             Title="{Binding Title}"
+             x:Class="GithubUsersApp.Views.RepoDetailsPage">
+    <ContentPage.Content>
+        <Grid 
+            HorizontalOptions="FillAndExpand" 
+            Margin="20,15"
+            VerticalOptions="FillAndExpand">
+
+            <ActivityIndicator 
+                IsVisible="{Binding IsBusy}" 
+                IsRunning="{Binding IsBusy}" 
+                Color="#3897F0"  
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"/>
+
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Spacing="10"
+                Orientation="Vertical"
+                IsVisible="{Binding IsShowControls}">
+
+                <StackLayout Orientation="Horizontal" Spacing="15" >
+                    <Frame
+                        Padding="0"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        HeightRequest="50"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        IsClippedToBounds="True"
+                        WidthRequest="40">
+                        <Frame.Content>
+                            <ffimageloading:CachedImage
+                                x:Name="profileImage"
+                                Margin="0"
+                                LoadingPlaceholder="defaultphoto.png"
+                                ErrorPlaceholder="defaultphoto.png"
+                                Aspect="AspectFill"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{Binding Repository.Owner.AvatarUrl}"
+                                VerticalOptions="FillAndExpand" />
+                        </Frame.Content>
+                    </Frame>
+                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                        <Label
+                            FontAttributes="None"
+                            TextColor="Black"
+                            FontSize="{StaticResource smallFontSize}"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Repository.Owner.Login}" />
+
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="{Binding Repository.FullName}" FontSize="Default" FontAttributes="Bold" />
+
+                <Label
+                    FontAttributes="None"
+                    TextColor="Black"
+                    FontSize="{StaticResource smallFontSize}"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding Repository.Description}" />
+                <StackLayout 
+                    HorizontalOptions="StartAndExpand" 
+                    Orientation="Horizontal">
+                    <Label
+                        FontFamily="{StaticResource fontFamilyFreeS}"
+                        TextColor="Gray"
+                        FontSize="Small"
+                        HorizontalTextAlignment="Center"
+                        Text="&#xf058;"
+                        VerticalTextAlignment="Center" />
+                    <Label
+                        TextColor="Black"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Center"
+                        Text="Open"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <TableView Intent="Menu" BackgroundColor="Transparent" Margin="0">
+                    <TableRoot>
+
+                        <TableSection 
+                        Title="Statistics">
+                            <!-- Issues-->
+                            <ViewCell>
+
+                                <StackLayout 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="CenterAndExpand"
+                                Margin="15,0"
+                                Orientation="Horizontal">
+                                    <Label
+                                    TextColor="#3897F0"
+                                    FontSize="Default"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Open Issues"
+                                    VerticalTextAlignment="Center" />
+                                    <Label
+                                    FontAttributes="None"
+                                    TextColor="Black"
+                                    FontSize="{StaticResource mediumFontSize}"
+                                    HorizontalTextAlignment="Start"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Repository.OpenIssues}" />
+                                </StackLayout>
+                            </ViewCell>
+                            <!--Stars-->
+                            <ViewCell>
+                                <StackLayout 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="CenterAndExpand"
+                                Margin="15,0"
+                                Orientation="Horizontal">
+                                    <Label
+                                    TextColor="#3897F0"
+                                    FontSize="Default"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Stars"
+                                    VerticalTextAlignment="Center" />
+                                    <Label
+                                    FontAttributes="None"
+                                    TextColor="Black"
+                                    FontSize="{StaticResource mediumFontSize}"
+                                    HorizontalTextAlignment="Start"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Repository.StargazersCount}" />
+                                </StackLayout>
+                            </ViewCell>
+
+                            <!--Watchers-->
+                            <ViewCell>
+                                <StackLayout 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="CenterAndExpand"
+                                Margin="15,0"
+                                Orientation="Horizontal">
+                                    <Label
+                                    TextColor="#3897F0"
+                                    FontSize="Default"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Watchers"
+                                    VerticalTextAlignment="Center" />
+                                    <Label
+                                    FontAttributes="None"
+                                    TextColor="Black"
+                                    FontSize="{StaticResource mediumFontSize}"
+                                    HorizontalTextAlignment="Start"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Repository.Watchers}" />
+                                </StackLayout>
+                            </ViewCell>
+                            <!--Forks-->
+                            <ViewCell>
+                                <StackLayout 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="CenterAndExpand"
+                                Margin="15,0"
+                                Orientation="Horizontal">
+                                    <Label
+                                    TextColor="#3897F0"
+                                    FontSize="Default"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Location"
+                                    VerticalTextAlignment="Center" />
+                                    <Label
+                                    FontAttributes="None"
+                                    TextColor="Black"
+                                    FontSize="{StaticResource mediumFontSize}"
+                                    HorizontalTextAlignment="Start"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Repository.ForksCount}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

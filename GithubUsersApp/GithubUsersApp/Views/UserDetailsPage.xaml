@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="True"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="White"
+             Title="{Binding Title}"
+             x:Class="GithubUsersApp.Views.UserDetailsPage">
+
+    <ContentPage.Content>
+        <Grid 
+            HorizontalOptions="FillAndExpand" 
+            Margin="20,15"
+            VerticalOptions="FillAndExpand">
+
+            <ActivityIndicator 
+                IsVisible="{Binding IsBusy}" 
+                IsRunning="{Binding IsBusy}" 
+                Color="#3897F0"  
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"/>
+
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Spacing="10"
+                Orientation="Vertical"
+                IsVisible="{Binding IsShowControls}">
+
+                <StackLayout Orientation="Horizontal" Spacing="15" >
+                    <Frame
+                        Padding="0"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        HeightRequest="80"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        IsClippedToBounds="True"
+                        WidthRequest="80">
+                        <Frame.Content>
+                            <ffimageloading:CachedImage
+                                x:Name="profileImage"
+                                Margin="0"
+                                LoadingPlaceholder="defaultphoto.png"
+                                ErrorPlaceholder="defaultphoto.png"
+                                Aspect="AspectFill"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{Binding User.AvatarUrl}"
+                                VerticalOptions="FillAndExpand" />  
+                        </Frame.Content>
+                    </Frame>
+                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource mediumFontSize}"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding User.Name}" />
+                        <Label
+                            FontAttributes="None"
+                            TextColor="Black"
+                            FontSize="{StaticResource smallFontSize}"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding User.Login}" />
+
+                    </StackLayout>
+                </StackLayout>
+                <Frame Padding="10" HasShadow="False"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="LightGray">
+                    <Label
+                        FontAttributes="None"
+                        TextColor="Black"
+                        FontSize="{StaticResource smallFontSize}"
+                        HorizontalTextAlignment="Start"
+                        Text="{Binding User.Bio}" />
+                </Frame>
+                <TableView Intent="Menu" BackgroundColor="Transparent" Margin="0">
+                    <TableRoot>
+
+                        <TableSection 
+                            Title="General">
+                            <!-- Company-->
+                            <ViewCell>
+                                
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Company"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.Company}" />    
+                                </StackLayout>
+                            </ViewCell>
+                            <!--Email-->
+                            <ViewCell>
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Email"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.Email}" />
+                                </StackLayout>
+                            </ViewCell>
+                            
+                            <!--Blog-->
+                            <ViewCell>
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Blog"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.Blog}" />
+                                </StackLayout>
+                            </ViewCell>
+                            <!--Location-->
+                            <ViewCell>
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Location"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.Location}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+
+                        <!--Stats-->
+                        <TableSection 
+                            Title="Statistics">
+                            <!-- Public Repos-->
+                            <ViewCell>
+
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Public Repositories"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.PublicRepos}" />
+                                </StackLayout>
+                            </ViewCell>
+                            <!--Public Gists-->
+                            <ViewCell>
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Public Gits"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.PublicGists}" />
+                                </StackLayout>
+                            </ViewCell>
+
+                            <!--Followers-->
+                            <ViewCell>
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Followers"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.Followers}" />
+                                </StackLayout>
+                            </ViewCell>
+                            <!--Following-->
+                            <ViewCell>
+                                <StackLayout 
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        TextColor="#3897F0"
+                                        FontSize="Default"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Following"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontAttributes="None"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource mediumFontSize}"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="End"
+                                        Text="{Binding User.Following}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
