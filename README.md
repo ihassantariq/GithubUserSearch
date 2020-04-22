@@ -16,3 +16,23 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
     i. https://api.github.com/users/{user}
   
     ii. https://api.github.com/users/{user}/repos
+    
+
+## Structure of application. 
+
+
+1. Used [Refit](https://github.com/reactiveui/refit) for http calls.
+
+2. For application structure I have used [Prism](https://github.com/PrismLibrary/Prism) strickly throughout the application. 
+
+3. Used [FFImageLoading](https://github.com/luberda-molinet/FFImageLoading] Library for images. 
+
+4. Used [Font Awesome](https://fontawesome.com/) for font icons. 
+
+
+## Application Functionalities:
+
+
+1. App is asking for any github user. 
+[See Detaills][https://github.com/ihassantariq/GithubUserSearch/blob/master/Screenshoots/IOS/2020-04-22_11-51-55-PM.png]
+
