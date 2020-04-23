@@ -40,3 +40,42 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
     <image class="center" src="Screenshoots/Android/Screenshot_1587592030.png" width="250" />
 </div>
 
+
+2. See all the repositories. 
+
+<div class="center">
+    <image class="center" src="Screenshoots/OS/2020-04-22_11-52-04-PM.png" width="250" />
+    <image class="center" src="Screenshoots/Android/Screenshot_1587592042.png" width="250" />
+</div>
+
+3. Menu page:
+
+<div class="center">
+    <image class="center" src="Screenshoots/IOS/2020-04-22_11-52-11-PM.png" width="250" />
+    <image class="center" src="Screenshoots/Android/Screenshot_1587592047.png" width="250" />
+</div>
+
+
+4. See user details:
+
+<div class="center">
+    <image class="center" src="Screenshoots/IOS/2020-04-22_11-52-16-PM.png" width="250" />
+    <image class="center" src="Screenshoots/Android/Screenshot_1587592054.png" width="250" />
+</div>
+
+5. See repository details:
+
+<div class="center">
+    <image class="center" src="Screenshoots/IOS/2020-04-22_11-52-23-PM.png" width="250" />
+    <image class="center" src="Screenshoots/Android/Screenshot_1587592066.png" width="250" />
+</div>
+
+6. App Icon:
+
+<div class="center">
+    <image class="center" src="Screenshoots/IOS/2020-04-22_11-54-24-PM.png" width="250" />
+    <image class="center" src="Screenshoots/Android/Screenshot_1587592571.png" width="250" />
+</div>
+
+
+### NOTE: This app is solely created for demo purposes of above tasks. It should not be shared or used publicly I will change the note later.  
