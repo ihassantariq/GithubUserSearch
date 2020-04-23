@@ -25,7 +25,7 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
 
 2. For application structure I have used [Prism](https://github.com/PrismLibrary/Prism) strickly throughout the application. 
 
-3. Used [FFImageLoading](https://github.com/luberda-molinet/FFImageLoading] Library for images. 
+3. Used [FFImageLoading](https://github.com/luberda-molinet/FFImageLoading) Library for images. 
 
 4. Used [Font Awesome](https://fontawesome.com/) for font icons. 
 
