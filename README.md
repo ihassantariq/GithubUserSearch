@@ -29,6 +29,8 @@ Develop an app using Xamarin Forms, to search for Git hub users and show associa
 
 4. Used [Font Awesome](https://fontawesome.com/) for font icons. 
 
+5. [Acr.Dialog](https://github.com/aritchie/userdialogs) library is being used for showing alerts and dialog
+
 
 ## Application Functionalities:
 
