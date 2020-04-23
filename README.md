@@ -72,4 +72,4 @@ Develop a Xamarin Forms app, to search for Git hub users and show associated rep
 </div>
 
 
-##### NOTE: This app is solely created for demo purposes of above tasks. It should not be shared or used publicly I will change the note later.  
+##### NOTE: This app is solely created for demo purposes to acheive above objective. It should not be shared or used publicly I will change the note later.  
