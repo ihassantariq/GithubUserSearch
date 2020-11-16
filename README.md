@@ -19,7 +19,7 @@ Develop a Xamarin Forms app, to search for Git hub users and show associated rep
 ## Application Functionalities:
 
 
-1. App is asking for any github user. 
+1. App is asking for any github user. You can use ihassantariq
 
 
 <div class="center">
@@ -28,7 +28,7 @@ Develop a Xamarin Forms app, to search for Git hub users and show associated rep
 </div>
 
 
-2. See all the repositories. 
+2. See all the public repositories. 
 
 
 <div class="center">
